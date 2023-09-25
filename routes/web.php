@@ -41,15 +41,4 @@ Route::get('/result', function (Request $request ) {
 Route::get('/verif/{age}', function ( Request $request ) {
     return  $request->age  ;
 })->middleware(\App\Http\Middleware\VerifAge::class);
-Route::middleware([\App\Http\Middleware\VerifAge::class])->group(function()
-{
-    Route::get('/verif/{age}', function ( Request $request ) {
-        return  $request->age  ;
-    });
-
-    Route::get('/verif/{age}', function ( Request $request ) {
-        return  $request->age  ;
-    }) ;
-}
-
-) ;
+Route::resource('product',\App\Http\Controllers\ProductController::class);
